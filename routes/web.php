@@ -13,9 +13,15 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', 'HomeController@index')->name('index');
-Route::get('/contact-us', 'HomeController@contactus')->name('contactus');
-Route::get('/about-us', 'HomeController@aboutus')->name('aboutus');
-Route::get('/our-work', 'HomeController@ourwork')->name('ourwork');
-Route::get('/news', 'HomeController@news')->name('news');
-Route::get('/blog', 'HomeController@blog')->name('blog');
+Route::get('/', 'App\Http\Controllers\HomeController@index')->name('index');
+Route::get('/contact-us', 'App\Http\Controllers\HomeController@contactus')->name('contactus');
+Route::get('/make-a-donation', 'App\Http\Controllers\HomeController@makeadonation')->name('makeadonation');
+Route::get('/join-as-volunteer', 'App\Http\Controllers\HomeController@joinasvolunteer')->name('joinasvolunteer');
+Route::get('/about-us', 'App\Http\Controllers\HomeController@aboutus')->name('aboutus');
+Route::get('/our-team', 'App\Http\Controllers\HomeController@team')->name('team');
+Route::get('/our-work', 'App\Http\Controllers\HomeController@ourwork')->name('ourwork');
+Route::get('/news', 'App\Http\Controllers\HomeController@news')->name('news');
+Route::get('/blog', 'App\Http\Controllers\HomeController@blog')->name('blog');
+Route::get('/gallery', 'App\Http\Controllers\HomeController@gallery')->name('gallery');
+Route::get('/gallerydetails', 'App\Http\Controllers\HomeController@gallerydetails')->name('gallerydetails');
+Route::get('/events', 'App\Http\Controllers\HomeController@events')->name('events');
