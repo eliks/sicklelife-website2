@@ -25,3 +25,8 @@ Route::get('/blog', 'App\Http\Controllers\HomeController@blog')->name('blog');
 Route::get('/gallery', 'App\Http\Controllers\HomeController@gallery')->name('gallery');
 Route::get('/gallerydetails', 'App\Http\Controllers\HomeController@gallerydetails')->name('gallerydetails');
 Route::get('/events', 'App\Http\Controllers\HomeController@events')->name('events');
+
+
+Route::group(['prefix' => 'admin'], function () {
+    Voyager::routes();
+});

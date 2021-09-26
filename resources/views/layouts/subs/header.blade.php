@@ -18,7 +18,7 @@
 								<i class="ddl-switch fa fa-angle-down"></i>
 								<a class="nav-link dropdown-toggle" title="About Us" href="{{ route('ourwork') }}">Our Work</a>
 								<ul class="dropdown-menu">
-									<li><a class="dropdown-item" href="aboutus_fullwidth.html">Events</a></li>
+									<li><a class="dropdown-item" href="{{ route('events') }}">Events</a></li>
 									<li><a class="dropdown-item" href="aboutme.html">News</a></li>
 									<li><a class="dropdown-item" href="{{ route('gallery') }}">Gallery</a></li>
 								</ul>
@@ -32,7 +32,7 @@
 										<i class="ddl-switch fa fa-angle-down"></i>
 										<a class="dropdown-item dropdown-toggle" href="#" title="Home 2">Our work</a>
 										<ul class="dropdown-menu">
-											<li><a class="dropdown-item" href="#">Events</a></li>
+											<li><a class="dropdown-item" href="{{ route('events') }}">Events</a></li>
 											<li><a class="dropdown-item" href="#">News</a></li>
 											<li><a class="dropdown-item" href="{{ route('gallery') }}">Gallery</a></li>
 											<li><a class="dropdown-item" href="{{ route('blog') }}">Blog</a></li>
