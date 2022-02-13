@@ -17,10 +17,13 @@ class CreateEventitemsTable extends Migration
             $table->id();
 
             $table->string('title', 64)->nullable();
+            $table->text('brief', 16)->nullable();
             $table->text('body', 16)->nullable();
             $table->integer('category_id')->default(1)->unsigned();
             $table->integer('image_id')->default(1)->unsigned();
+            $table->integer('author_id')->default(1)->unsigned();
             $table->string('listing_date', 64)->nullable();
+            $table->string('ref', 64)->nullable();
             $table->date('show_from_date')->nullable();
             $table->date('show_till_date')->nullable();
 

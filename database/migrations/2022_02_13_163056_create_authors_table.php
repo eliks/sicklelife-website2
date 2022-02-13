@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateEventitemCategoriesTable extends Migration
+class CreateAuthorsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,11 +13,11 @@ class CreateEventitemCategoriesTable extends Migration
      */
     public function up()
     {
-        Schema::create('eventitem_categories', function (Blueprint $table) {
+        Schema::create('authors', function (Blueprint $table) {
             $table->increments('id');
             
             $table->text('name')->nullable();
-            $table->text('description')->nullable();
+            $table->text('image_id')->nullable();
 
             $table->softDeletes();
             $table->timestamp('created_at')->default(date('y-m-d H:i:s', strtotime('now')));
@@ -32,6 +32,6 @@ class CreateEventitemCategoriesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('eventitem_categories');
+        Schema::dropIfExists('authors');
     }
 }
