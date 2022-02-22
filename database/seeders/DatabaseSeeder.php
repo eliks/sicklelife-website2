@@ -16,6 +16,7 @@ class DatabaseSeeder extends Seeder
         $this->call(EventitemCategorySeeder::class);
         $this->call(ImageSeeder::class);
         $this->call(AuthorSeeder::class);
+        $this->call(BlogitemSeeder::class);
         $this->call(EventItemSeeder::class);
         // \App\Models\User::factory(10)->create();
     }

@@ -16,21 +16,12 @@
 							<li><a class="nav-link" href="{{ route('index') }}">Home</a></li>
 							<li class="dropdown">
 								<i class="ddl-switch fa fa-angle-down"></i>
-								<a class="nav-link dropdown-toggle" title="About Us" href="{{ route('ourwork') }}">Our Work</a>
-								<ul class="dropdown-menu">
-									<li><a class="dropdown-item" href="{{ route('events') }}">Events</a></li>
-									<li><a class="dropdown-item" href="aboutme.html">News</a></li>
-									<li><a class="dropdown-item" href="{{ route('gallery') }}">Gallery</a></li>
-								</ul>
-							</li>
-							<li class="dropdown">
-								<i class="ddl-switch fa fa-angle-down"></i>
 								<a class="nav-link dropdown-toggle" href="{{ route('aboutus') }}">About Us</a>
 								<ul class="dropdown-menu">
                                     <li><a class="dropdown-item" href="{{ route('aboutus') }}">Who we are</a></li>
 									<li class="dropdown">
 										<i class="ddl-switch fa fa-angle-down"></i>
-										<a class="dropdown-item dropdown-toggle" href="#" title="Home 2">Our work</a>
+										<a class="dropdown-item dropdown-toggle" href>Our work</a>
 										<ul class="dropdown-menu">
 											<li><a class="dropdown-item" href="{{ route('events') }}">Events</a></li>
 											<li><a class="dropdown-item" href="#">News</a></li>
@@ -39,16 +30,17 @@
 										</ul>
 									</li>
 									<li><a class="dropdown-item" href="{{ route('team') }}">Meet The Team</a></li>
+									<li class="dropdown">
+										<i class="ddl-switch fa fa-angle-down"></i>
+										<a class="dropdown-item dropdown-toggle" href="{{ route('joinasvolunteer') }}">Get Involved</a>
+										<ul class="dropdown-menu">
+											<li><a class="dropdown-item" href="{{ route('makeadonation') }}">Make A Donation</a></li>
+											<li><a class="dropdown-item" href="{{ route('joinasvolunteer') }}">Join As Volunteer</a></li>
+										</ul>
+									</li>
 								</ul>
 							</li>
-							<li class="dropdown">
-								<i class="ddl-switch fa fa-angle-down"></i>
-								<a class="nav-link dropdown-toggle" href="{{ route('aboutus') }}">Get Involved</a>
-								<ul class="dropdown-menu">
-									<li><a class="dropdown-item" href="{{ route('makeadonation') }}">Make A Donation</a></li>
-									<li><a class="dropdown-item" href="{{ route('joinasvolunteer') }}">Join As Volunteer</a></li>
-								</ul>
-							</li>
+							<li><a class="nav-link" href="{{ route('blog') }}">Our Blog</a></li>
 							<li><a class="nav-link" href="{{ route('makeadonation') }}"><b>Donate Now</b></a></li>
 							<li><a class="nav-link" href="{{ route('contactus') }}">Contact Us</a></li>
 						</ul>

@@ -26,6 +26,7 @@ Route::get('/gallery', 'App\Http\Controllers\HomeController@gallery')->name('gal
 Route::get('/gallerydetails', 'App\Http\Controllers\HomeController@gallerydetails')->name('gallerydetails');
 Route::get('/events', 'App\Http\Controllers\HomeController@events')->name('events');
 Route::get('/events/{id}/{slug?}', 'App\Http\Controllers\HomeController@eventShow')->name('events.show');
+Route::get('/blog/{id}/{slug?}', 'App\Http\Controllers\HomeController@blogShow')->name('blog.show');
 
 
 Route::group(['prefix' => 'admin'], function () {

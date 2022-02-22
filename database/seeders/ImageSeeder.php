@@ -55,5 +55,37 @@ class ImageSeeder extends Seeder
                 "image_url" => "template/assets/images/sadat.jpg",
             ]
         );
+
+        DB::table('images')->insert(
+            [
+                "id" => 6,
+                "name" => "CSD",
+                "image_url" => "template/assets/images/what_is_scd.jpg",
+            ]
+        );
+
+        DB::table('images')->insert(
+            [
+                "id" => 7,
+                "name" => "CS Day",
+                "image_url" => "template/assets/images/scd-2019.jpg",
+            ]
+        );
+
+        DB::table('images')->insert(
+            [
+                "id" => 8,
+                "name" => "Harmattan",
+                "image_url" => "template/assets/images/harmattan.jpg",
+            ]
+        );
+
+        DB::table('images')->insert(
+            [
+                "id" => 9,
+                "name" => "Sickle status",
+                "image_url" => "template/assets/images/sicklestatus.jpeg",
+            ]
+        );
     }
 }

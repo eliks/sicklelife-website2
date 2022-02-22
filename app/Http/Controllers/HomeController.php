@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Eventitem;
+use App\Models\Blogitem;
 
 class HomeController extends Controller
 {
@@ -24,7 +25,17 @@ class HomeController extends Controller
 
     public function blog()
     {
-        return view("home.blog");
+        $data["listed_blogs"] = Blogitem::orderBy("created_at", "DESC")->get();
+
+        return view("home.blog", $data);
+    }
+
+    public function blogShow($id)
+    {
+        $data["listed_blog"] = Blogitem::findOrFail($id);
+        $data["similar_blogs"] = Blogitem::where("id", "<>", $id)->get()->random(4);
+
+        return view("home.blog_show", $data);
     }
 
     public function events()

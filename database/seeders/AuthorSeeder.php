@@ -29,5 +29,19 @@ class AuthorSeeder extends Seeder
                 "image_id" => 2,
             ]
         );
+
+        DB::table('authors')->insert(
+            [
+                "name" => "The Sickle Life Editorial Team",
+                "image_id" => 3,
+            ]
+        );
+
+        DB::table('authors')->insert(
+            [
+                "name" => "Dr. Sefakor Enam Bankas and Aaron Tabi",
+                "image_id" => 3,
+            ]
+        );
     }
 }
