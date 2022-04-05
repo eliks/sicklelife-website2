@@ -19,16 +19,6 @@
 								<a class="nav-link dropdown-toggle" href="{{ route('aboutus') }}">About Us</a>
 								<ul class="dropdown-menu">
                                     <li><a class="dropdown-item" href="{{ route('aboutus') }}">Who we are</a></li>
-									<li class="dropdown">
-										<i class="ddl-switch fa fa-angle-down"></i>
-										<a class="dropdown-item dropdown-toggle" href>Our work</a>
-										<ul class="dropdown-menu">
-											<li><a class="dropdown-item" href="{{ route('events') }}">Events</a></li>
-											<li><a class="dropdown-item" href="#">News</a></li>
-											<li><a class="dropdown-item" href="{{ route('gallery') }}">Gallery</a></li>
-											<li><a class="dropdown-item" href="{{ route('blog') }}">Blog</a></li>
-										</ul>
-									</li>
 									<li><a class="dropdown-item" href="{{ route('team') }}">Meet The Team</a></li>
 									<li class="dropdown">
 										<i class="ddl-switch fa fa-angle-down"></i>
@@ -38,6 +28,7 @@
 											<li><a class="dropdown-item" href="{{ route('joinasvolunteer') }}">Join As Volunteer</a></li>
 										</ul>
 									</li>
+									<li><a class="dropdown-item" href="{{ route('gallery') }}">Our Gallery</a></li>
 								</ul>
 							</li>
 							<li><a class="nav-link" href="{{ route('blog') }}">Our Blog</a></li>

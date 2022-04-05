@@ -18,6 +18,7 @@ class DatabaseSeeder extends Seeder
         $this->call(AuthorSeeder::class);
         $this->call(BlogitemSeeder::class);
         $this->call(EventItemSeeder::class);
+        $this->call(TeamMemberSeeder::class);
         // \App\Models\User::factory(10)->create();
     }
 }

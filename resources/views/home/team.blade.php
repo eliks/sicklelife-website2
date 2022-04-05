@@ -32,6 +32,11 @@
 	<!-- Custom - Common CSS -->
 	<link rel="stylesheet" href="{{ asset('template/assets/css/rtl.css') }}">
 	<link rel="stylesheet" type="text/css" href="{{ asset('template/style.css') }}">
+	<style>
+		.team-box p {
+			text-align: justify;
+		}
+	</style>
 
 	<!--[if lt IE 9]>
 		<script src="js/html5/respond.min.js"></script>
@@ -63,94 +68,29 @@
 							<!-- Team Section -->	
 							<div class="team-section">
 								<div class="block-title">
-									<h3>The Core Team</h3>
+									<h3>Our Team</h3>
 								</div>
-								<div class="team-box">
-									<img src="http://via.placeholder.com/170x170" alt="team1"/>
-									<h4>Dr. Sefakor Enam Bankas</h4>
-									<p>This is in recognition of the many struggles persons living with sickle cell disease undergo daily. It is a clarion call through our posts to our readers to make the best of their situation, despite the odds and enjoy each moment for</p>
-									<ul>
-										<li><a href="#"><i class="fa fa-facebook"></i></a></li>
-										<li><a href="#"><i class="fa fa-twitter"></i></a></li>
-										<li><a href="#"><i class="fa fa-pinterest-p"></i></a></li>
-									</ul>
-								</div>
-								<div class="team-box">
-									<img src="http://via.placeholder.com/170x170" alt="team1"/>
-									<h4>Veronica Owusu</h4>
-									<p>This is in recognition of the many struggles persons living with sickle cell disease undergo daily. It is a clarion call through our posts to our readers to make the best of their situation, despite the odds and enjoy each moment for</p>
-									<ul>
-										<li><a href="#"><i class="fa fa-facebook"></i></a></li>
-										<li><a href="#"><i class="fa fa-twitter"></i></a></li>
-										<li><a href="#"><i class="fa fa-pinterest-p"></i></a></li>
-									</ul>
-								</div>
-								<div class="team-box">
-									<img src="http://via.placeholder.com/170x170" alt="team1"/>
-									<h4>Veronica Owusu</h4>
-									<p>This is in recognition of the many struggles persons living with sickle cell disease undergo daily. It is a clarion call through our posts to our readers to make the best of their situation, despite the odds and enjoy each moment for</p>
-									<ul>
-										<li><a href="#"><i class="fa fa-facebook"></i></a></li>
-										<li><a href="#"><i class="fa fa-twitter"></i></a></li>
-										<li><a href="#"><i class="fa fa-pinterest-p"></i></a></li>
-									</ul>
-								</div>
-								<div class="team-box">
-									<img src="http://via.placeholder.com/170x170" alt="team1"/>
-									<h4>Veronica Owusu</h4>
-									<p>This is in recognition of the many struggles persons living with sickle cell disease undergo daily. It is a clarion call through our posts to our readers to make the best of their situation, despite the odds and enjoy each moment for</p>
-									<ul>
-										<li><a href="#"><i class="fa fa-facebook"></i></a></li>
-										<li><a href="#"><i class="fa fa-twitter"></i></a></li>
-										<li><a href="#"><i class="fa fa-pinterest-p"></i></a></li>
-									</ul>
-								</div>
-								<div class="team-box">
-									<img src="http://via.placeholder.com/170x170" alt="team1"/>
-									<h4>Veronica Owusu</h4>
-									<p>This is in recognition of the many struggles persons living with sickle cell disease undergo daily. It is a clarion call through our posts to our readers to make the best of their situation, despite the odds and enjoy each moment for</p>
-									<ul>
-										<li><a href="#"><i class="fa fa-facebook"></i></a></li>
-										<li><a href="#"><i class="fa fa-twitter"></i></a></li>
-										<li><a href="#"><i class="fa fa-pinterest-p"></i></a></li>
-									</ul>
-								</div>
-							</div><!-- Team Section /- -->
-							<!-- Team Section -->	
-							<div class="team-section">
-								<div class="block-title">
-									<h3>Our Volunteers</h3>
-								</div>
-								<div class="team-box">
-									<img src="http://via.placeholder.com/170x170" alt="team1"/>
-									<h4>Veronica Owusu</h4>
-									<p>This is in recognition of the many struggles persons living with sickle cell disease undergo daily. It is a clarion call through our posts to our readers to make the best of their situation, despite the odds and enjoy each moment for</p>
-									<ul>
-										<li><a href="#"><i class="fa fa-facebook"></i></a></li>
-										<li><a href="#"><i class="fa fa-twitter"></i></a></li>
-										<li><a href="#"><i class="fa fa-pinterest-p"></i></a></li>
-									</ul>
-								</div>
-								<div class="team-box">
-									<img src="http://via.placeholder.com/170x170" alt="team1"/>
-									<h4>Veronica Owusu</h4>
-									<p>This is in recognition of the many struggles persons living with sickle cell disease undergo daily. It is a clarion call through our posts to our readers to make the best of their situation, despite the odds and enjoy each moment for</p>
-									<ul>
-										<li><a href="#"><i class="fa fa-facebook"></i></a></li>
-										<li><a href="#"><i class="fa fa-twitter"></i></a></li>
-										<li><a href="#"><i class="fa fa-pinterest-p"></i></a></li>
-									</ul>
-								</div>
-								<div class="team-box">
-									<img src="http://via.placeholder.com/170x170" alt="team1"/>
-									<h4>Veronica Owusu</h4>
-									<p>This is in recognition of the many struggles persons living with sickle cell disease undergo daily. It is a clarion call through our posts to our readers to make the best of their situation, despite the odds and enjoy each moment for</p>
-									<ul>
-										<li><a href="#"><i class="fa fa-facebook"></i></a></li>
-										<li><a href="#"><i class="fa fa-twitter"></i></a></li>
-										<li><a href="#"><i class="fa fa-pinterest-p"></i></a></li>
-									</ul>
-								</div>
+								@foreach($core_teammembers as $core_teammember)
+									<div class="team-box" style="min-height: 12rem;">
+										<img src="{{ $core_teammember->image_url }}" alt="team1" style="max-width: 10rem;"/>
+										<h4>{{ $core_teammember->name }} @if($core_teammember->role != "")<span style="color: #bebebe;">({{ $core_teammember->role }})</span>@endif</h4>
+										{!! $core_teammember->bio !!}
+										<ul>
+											@if($core_teammember->sm_facebook != "")
+												<li><a href="{{ $core_teammember->sm_facebook }}" target="_blank"><i class="fa fa-facebook"></i></a></li>
+											@endif
+											@if($core_teammember->sm_twitter != "")
+												<li><a href="{{ $core_teammember->sm_twitter }}" target="_blank"><i class="fa fa-twitter"></i></a></li>
+											@endif
+											@if($core_teammember->sm_linkedin != "")
+												<li><a href="{{ $core_teammember->sm_linkedin }}" target="_blank"><i class="fa fa-linkedin"></i></a></li>
+											@endif
+											@if($core_teammember->sm_instagram != "")
+												<li><a href="{{ $core_teammember->sm_instagram }}" target="_blank"><i class="fa fa-instagram"></i></a></li>
+											@endif
+										</ul>
+									</div>
+								@endforeach
 							</div><!-- Team Section /- -->
 						</div><!-- Content Area /- -->
 						<!-- Widget Area -->

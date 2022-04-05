@@ -103,7 +103,7 @@
 								</div>
 							</nav><!-- Pagination /- -->
 						</div><!-- Content Area /- -->
-						@include("layouts.subs.widget_area")
+						@include("layouts.subs.right-widget")
 					</div>
 				</div><!-- Container /- -->
 			</div><!-- Page Content /- -->

@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Eventitem;
 use App\Models\Blogitem;
+use App\Models\TeamMember;
 
 class HomeController extends Controller
 {
@@ -20,7 +21,8 @@ class HomeController extends Controller
 
     public function team()
     {
-        return view("home.team");
+        $data["core_teammembers"] = TeamMember::orderBy("sort_rank")->get();
+        return view("home.team", $data);
     }
 
     public function blog()
