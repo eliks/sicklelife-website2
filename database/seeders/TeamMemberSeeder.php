@@ -19,7 +19,7 @@ class TeamMemberSeeder extends Seeder
         DB::table('team_members')->insert(
             [
                 "name" => "Dr. Sefakor Enam Bankas",
-                "image_url" => "template/team/dr_sefakor_enam_bankas.png",
+                "image_url" => "template/team/dr_sefakor_enam_bankas2.png",
                 "role" => "Founder and Managing Director",
                 "bio" => "<p><b>Reason for interest in Sickle Cell / joining Sickle Life:</b><br>
                 I am person living with Sickle Cell Disease, health advocate and medical doctor and have experienced this condition through several perspectives which have exposed several gaps in the Sickle Cell Disease space locally.<br>
@@ -89,7 +89,7 @@ class TeamMemberSeeder extends Seeder
         DB::table('team_members')->insert(
             [
                 "name" => "Serian Emefa Agbenya",
-                "image_url" => "template/team/emefa.png",
+                "image_url" => "template/team/emefa2.png",
                 "role" => "Marketing and Branding",
                 "bio" => "<p><b>Joining Sickle Life:</b> <br>
                 To be an advocate and to educate the general public about the condition and to make informed choices since I grew up watching my friend living with the condition and the pain and stress it comes with it but she was able to achieve her aims without been limited with her condition. It made me admire her willingness to fight on so it made me join Sickle Life so I can encourage persons living with SCD not to give up their dreams since they can achieve their dreams if they put their minds to it without making the condition define who they really are and what they want to become in future.</p>
