@@ -19,7 +19,7 @@ class TeamMemberSeeder extends Seeder
         DB::table('team_members')->insert(
             [
                 "name" => "Dr. Sefakor Enam Bankas",
-                "image_url" => "template/team/dr_sefakor_enam_bankas2.png",
+                "image_url" => "template/team/dr_sefakor4.png",
                 "role" => "Founder and Managing Director",
                 "bio" => "<p><b>Reason for interest in Sickle Cell / joining Sickle Life:</b><br>
                 I am person living with Sickle Cell Disease, health advocate and medical doctor and have experienced this condition through several perspectives which have exposed several gaps in the Sickle Cell Disease space locally.<br>
