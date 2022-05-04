@@ -4,6 +4,8 @@ namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
 use DB;
+use App\Models\Blogitem;
+use App\Models\BlogitemAuthor;
 
 class BlogitemSeeder extends Seeder
 {
@@ -16,7 +18,7 @@ class BlogitemSeeder extends Seeder
     {
         DB::table('blogitems')->delete();
 
-        DB::table('blogitems')->insert(
+        $blogitem = Blogitem::create(
             [
                 "title" => "Sickle Cell Health Tips For Harmattan",
                 "brief" => "We are once again in the thick of harmattan. The weather is cold and dry, and there is a lot of dust in the air. What can we do to minimize the effects it has on people with Sickle Cell? During this season the weather can be very unpredictable. During the day it can get",
@@ -40,8 +42,11 @@ class BlogitemSeeder extends Seeder
                 "show_till_date" => "2023-01-01",
             ]
         );
+        BlogitemAuthor::create(["blogitem_id" => $blogitem->id, "author_id" => 2, "added_by_id" => 1]);
+        BlogitemAuthor::create(["blogitem_id" => $blogitem->id, "author_id" => 4, "added_by_id" => 1]);
+        BlogitemAuthor::create(["blogitem_id" => $blogitem->id, "author_id" => 5, "added_by_id" => 1]);
 
-        DB::table('blogitems')->insert(
+        $blogitem = Blogitem::create(
             [
                 "title" => "What Is Sickle Cell Disease",
                 "body" => "<p>Definition:<br/>
@@ -84,8 +89,11 @@ class BlogitemSeeder extends Seeder
                 "show_till_date" => "2023-01-01",
             ]
         );
+        BlogitemAuthor::create(["blogitem_id" => $blogitem->id, "author_id" => 2, "added_by_id" => 1]);
+        BlogitemAuthor::create(["blogitem_id" => $blogitem->id, "author_id" => 3, "added_by_id" => 1]);
+        BlogitemAuthor::create(["blogitem_id" => $blogitem->id, "author_id" => 6, "added_by_id" => 1]);
 
-        DB::table('blogitems')->insert(
+        $blogitem = Blogitem::create(
             [
                 "title" => "World Sickle Cell Day 2019; 10 Years of Global Awareness, Advocacy & Education.",
                 "body" => "<p>Sickle Cell Disease (SCD) is a genetic disorder affecting 300 to 400 million adults and children worldwide. 65% of Sickle Cell Disease carriers are in Sub-Saharan Africa. Research indicates that about 90% of children born with Sickle Cell Disease in sub-Saharan Africa die before the age of 5 years.</p>
@@ -167,8 +175,10 @@ class BlogitemSeeder extends Seeder
                 "show_till_date" => "2023-01-01",
             ]
         );
+        BlogitemAuthor::create(["blogitem_id" => $blogitem->id, "author_id" => 1, "added_by_id" => 1]);
+        BlogitemAuthor::create(["blogitem_id" => $blogitem->id, "author_id" => 8, "added_by_id" => 1]);
 
-        DB::table('blogitems')->insert(
+        $blogitem = Blogitem::create(
             [
                 "title" => "World Sickle Cell Day 2019",
                 "body" => "<p>World Health Days are an essential part of public health policy. They provide opportunity for raising awareness and mobilizing local and international support for a wide spectrum of medical conditions.</p>
@@ -200,8 +210,11 @@ class BlogitemSeeder extends Seeder
                 "show_till_date" => "2023-01-01",
             ]
         );
+        BlogitemAuthor::create(["blogitem_id" => $blogitem->id, "author_id" => 1, "added_by_id" => 1]);
+        BlogitemAuthor::create(["blogitem_id" => $blogitem->id, "author_id" => 9, "added_by_id" => 1]);
+        BlogitemAuthor::create(["blogitem_id" => $blogitem->id, "author_id" => 10, "added_by_id" => 1]);
 
-        DB::table('blogitems')->insert(
+        $blogitem = Blogitem::create(
             [
                 "title" => "Sickle Cell Health Tips For Harmattan",
                 "body" => "",
@@ -214,5 +227,7 @@ class BlogitemSeeder extends Seeder
                 "show_till_date" => "2023-01-01",
             ]
         );
+        BlogitemAuthor::create(["blogitem_id" => $blogitem->id, "author_id" => 6, "added_by_id" => 1]);
+        BlogitemAuthor::create(["blogitem_id" => $blogitem->id, "author_id" => 7, "added_by_id" => 1]);
     }
 }

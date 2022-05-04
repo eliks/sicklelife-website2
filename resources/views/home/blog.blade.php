@@ -73,15 +73,15 @@
 													<span class="byline">by <a href="#" title="{{ $listed_blog->author_name }}">{{ $listed_blog->author_name }}</a></span>
 													<span class="post-date"><a href="#">{{ $listed_blog->listing_date }}</a></span>
 												</div>
-												<a href="{{ route('blog.show', ['id' => $listed_blog->id, 'slug'=>Str::slug($listed_blog->title)]) }}"><img src="{{ asset($listed_blog->image_url) }}" alt="{{ $listed_blog->title }}"></a>
+												<a href="{{ $listed_blog->url }}"><img src="{{ asset($listed_blog->image_url) }}" alt="{{ $listed_blog->title }}"></a>
 											</div>
 											<div class="entry-content">
 												<div class="entry-header">	
 													<span class="post-category"><a href="#" title="{{ $listed_blog->category_str }}">{{ $listed_blog->category_str }}</a></span>
-													<h3 class="entry-title"><a href="{{ route('blog.show', ['id' => $listed_blog->id, 'slug'=>Str::slug($listed_blog->title)]) }}" title="{{ $listed_blog->title }}">{{ $listed_blog->title }}</a></h3>
+													<h3 class="entry-title"><a href="{{ $listed_blog->url }}" title="{{ $listed_blog->title }}">{{ $listed_blog->title }}</a></h3>
 												</div>								
 												<p>{!! Str::limit(strip_tags($listed_blog->body), 190) !!}</p>
-												<a href="{{ route('blog.show', ['id' => $listed_blog->id, 'slug'=>Str::slug($listed_blog->title)]) }}" title="Read More">Read More</a>
+												<a href="{{ $listed_blog->url }}" title="Read More">Read More</a>
 											</div>
 										</div>
 									</div>

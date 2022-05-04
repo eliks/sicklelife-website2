@@ -79,19 +79,9 @@
 									<p>(The writers are persons living with Sickle Cell Disease and Sickle Cell Disease Advocates from Sickle Life. All Views expressed are personal, please contact your doctor/counsellor for further information.)</p>
 								</div>
 							</article>
-							<!-- About Author -->
-							<div class="about-author-box">
-								<div class="author">
-									<i><img src="http://via.placeholder.com/170x170" alt="Author" /></i>
-									<h4>{{ $listed_blog->author_name }}</h4>
-									<p>To take a trivial example, which of us ever undertakes laborious physical exercise, except to obtain some advantage from it? But who has any right to find fault with a man who chooses to enjoy a pleasure that has no annoying consequences.</p>
-									<ul>
-										<li><a href="#" title="Facebook"><i class="fa fa-facebook"></i></a></li>
-										<li><a href="#" title="Twitter"><i class="fa fa-twitter"></i></a></li>
-										<li><a href="#" title="Pinterest"><i class="fa fa-pinterest-p"></i></a></li>
-									</ul>
-								</div>
-							</div><!-- About Author /- -->
+							@foreach($listed_blog->authors as $author)
+								@include("layouts.subs.teammember_tile", ["tile_teammember" => $author])
+							@endforeach
 							<!-- Related Post -->
 							<div class="related-post">
 								<h3>You May Also Like</h3>

@@ -7,11 +7,28 @@ use App\Models\Eventitem;
 use App\Models\Blogitem;
 use App\Models\TeamMember;
 
+
 class HomeController extends Controller
 {
+    /**
+     * Create a new controller instance.
+     *
+     * @return void
+     */
+    public function __construct()
+    {
+        // $this->middleware('auth');
+    }
+
+    /**
+     * Show the application dashboard.
+     *
+     * @return \Illuminate\Contracts\Support\Renderable
+     */
     public function index()
     {
         return view("home.index");
+        return view('home');
     }
 
     public function aboutus()

@@ -22,6 +22,7 @@ class CreateBlogitemsTable extends Migration
             $table->integer('category_id')->default(1)->unsigned();
             $table->integer('image_id')->default(1)->unsigned();
             $table->integer('author_id')->default(1)->unsigned();
+            $table->integer('added_by_id')->default(1)->unsigned();
             $table->string('listing_date', 64)->nullable();
             $table->string('ref', 64)->nullable();
             $table->date('show_from_date')->nullable();

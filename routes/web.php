@@ -32,3 +32,11 @@ Route::get('/blog/{id}/{slug?}', 'App\Http\Controllers\HomeController@blogShow')
 Route::group(['prefix' => 'admin'], function () {
     Voyager::routes();
 });
+
+Auth::routes(['register' => false]);
+
+Route::middleware(['auth'])->prefix('dashboard')->group(function () {
+    Route::get('/', [App\Http\Controllers\DashboardController::class, 'index'])->name('dashboard.index');
+    Route::resource('blog', App\Http\Controllers\DashBlogController::class, ["as" =>"dashboard"]);
+    Route::resource('user', App\Http\Controllers\DashUserController::class, ["as" =>"dashboard"]);
+});

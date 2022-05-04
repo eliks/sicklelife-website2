@@ -71,25 +71,7 @@
 									<h3>Our Team</h3>
 								</div>
 								@foreach($core_teammembers as $core_teammember)
-									<div class="team-box" style="min-height: 12rem;">
-										<img src="{{ $core_teammember->image_url }}" alt="team1" style="max-width: 10rem;"/>
-										<h4>{{ $core_teammember->name }} @if($core_teammember->role != "")<span style="color: #bebebe;">({{ $core_teammember->role }})</span>@endif</h4>
-										{!! $core_teammember->bio !!}
-										<ul>
-											@if($core_teammember->sm_facebook != "")
-												<li><a href="{{ $core_teammember->sm_facebook }}" target="_blank"><i class="fa fa-facebook"></i></a></li>
-											@endif
-											@if($core_teammember->sm_twitter != "")
-												<li><a href="{{ $core_teammember->sm_twitter }}" target="_blank"><i class="fa fa-twitter"></i></a></li>
-											@endif
-											@if($core_teammember->sm_linkedin != "")
-												<li><a href="{{ $core_teammember->sm_linkedin }}" target="_blank"><i class="fa fa-linkedin"></i></a></li>
-											@endif
-											@if($core_teammember->sm_instagram != "")
-												<li><a href="{{ $core_teammember->sm_instagram }}" target="_blank"><i class="fa fa-instagram"></i></a></li>
-											@endif
-										</ul>
-									</div>
+									@include("layouts.subs.teammember_tile", ["tile_teammember" => $core_teammember])
 								@endforeach
 							</div><!-- Team Section /- -->
 						</div><!-- Content Area /- -->
