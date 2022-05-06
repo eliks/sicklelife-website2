@@ -17,56 +17,64 @@
         <div id="main-wrapper">
             <div class="row">
                 <div class="col-lg-3 col-md-6">
-                    <div class="panel panel-white stats-widget">
-                        <div class="panel-body">
-                            <div class="pull-left">
-                                <span class="stats-number">$781,876</span>
-                                <p class="stats-info">Total Income</p>
-                            </div>
-                            <div class="pull-right">
-                                <i class="icon-arrow_upward stats-icon"></i>
+                    <a href="{{ route('dashboard.blog.index') }}">
+                        <div class="panel panel-white stats-widget">
+                            <div class="panel-body">
+                                <div class="pull-left">
+                                    <span class="stats-number">{{ count(App\Models\Blogitem::all()) }}</span>
+                                    <p class="stats-info">Blog Articles</p>
+                                </div>
+                                <div class="pull-right">
+                                    <i class="icon-list stats-icon"></i>
+                                </div>
                             </div>
                         </div>
-                    </div>
+                    </a>
                 </div>
                 <div class="col-lg-3 col-md-6">
-                    <div class="panel panel-white stats-widget">
-                        <div class="panel-body">
-                            <div class="pull-left">
-                                <span class="stats-number">578,100</span>
-                                <p class="stats-info">Downloads</p>
-                            </div>
-                            <div class="pull-right">
-                                <i class="icon-arrow_downward stats-icon"></i>
+                    <a href="{{ route('dashboard.teammember.index') }}">
+                        <div class="panel panel-white stats-widget">
+                            <div class="panel-body">
+                                <div class="pull-left">
+                                    <span class="stats-number">{{ count(App\Models\TeamMember::all()) }}</span>
+                                    <p class="stats-info">Team Members</p>
+                                </div>
+                                <div class="pull-right">
+                                    <i class="fa fa-user-md stats-icon"></i>
+                                </div>
                             </div>
                         </div>
-                    </div>
+                    </a>
                 </div>
                 <div class="col-lg-3 col-md-6">
-                    <div class="panel panel-white stats-widget">
-                        <div class="panel-body">
-                            <div class="pull-left">
-                                <span class="stats-number">+23,356</span>
-                                <p class="stats-info">New Registrations</p>
-                            </div>
-                            <div class="pull-right">
-                                <i class="icon-arrow_upward stats-icon"></i>
+                    <a href="{{ route('dashboard.image.index') }}">
+                        <div class="panel panel-white stats-widget">
+                            <div class="panel-body">
+                                <div class="pull-left">
+                                    <span class="stats-number">{{ count(App\Models\Image::all()) }}</span>
+                                    <p class="stats-info">Images</p>
+                                </div>
+                                <div class="pull-right">
+                                    <i class="icon-image stats-icon"></i>
+                                </div>
                             </div>
                         </div>
-                    </div>
+                    </a>
                 </div>
                 <div class="col-lg-3 col-md-6">
-                    <div class="panel panel-white stats-widget">
-                        <div class="panel-body">
-                            <div class="pull-left">
-                                <span class="stats-number">58%</span>
-                                <p class="stats-info">Finished Tasks</p>
-                            </div>
-                            <div class="pull-right">
-                                <i class="icon-arrow_upward stats-icon"></i>
+                    <a href="{{ route('dashboard.user.index') }}">
+                        <div class="panel panel-white stats-widget">
+                            <div class="panel-body">
+                                <div class="pull-left">
+                                    <span class="stats-number">{{ count(App\Models\User::all()) }}</span>
+                                    <p class="stats-info">Users</p>
+                                </div>
+                                <div class="pull-right">
+                                    <i class="icon-users stats-icon"></i>
+                                </div>
                             </div>
                         </div>
-                    </div>
+                    </a>
                 </div>
             </div><!-- Row -->
             {{-- <div class="row">

@@ -72,33 +72,20 @@
 									<div class="type-post">
 										<div class="entry-content">
 											<div class="entry-header">	
-												<span class="post-category"><a href="#" title="Travel">Life Style</a></span>
-												<h3 class="entry-title"><a href="#" title="Hammock Camping Tips">SickleLife Living Legends Series</a></h3>
+												<span class="post-category"><a href="#" title="{{ $album->category_str }}">{{ $album->category_str }}</a></span>
+												<h3 class="entry-title"><a href="#" title="{{ $album->title }}">{{ $album->title }}</a></h3>
 											</div>								
-											<p>This is in recognition of the many struggles persons living with sickle cell disease undergo daily. It is a clarion call through our posts to our readers to make the best of their situation, despite the odds and enjoy each moment for its inherent beauty. It also encourages us to seek knowledge about sickle cell disease daily, as if each were our last.</p>
+											<p>{{ $album->description }}</p>
 										</div>
 									</div>
-									<div class="trending-carousel">					
-										<div class="type-post">
-											<div class="entry-cover"><a href="#"><img src="{{ asset('template/assets/images/education.jpg') }}" alt="Trending" /></a></div>
-										</div>
-										<div class="type-post">
-											<div class="entry-cover"><a href="#"><img src="{{ asset('template/assets/images/sadat.jpg') }}" alt="Trending" /></a></div>
-										</div>
-										<div class="type-post">
-											<div class="entry-cover"><a href="#"><img src="{{ asset('template/assets/images/medical-services.jpg') }}" alt="Trending" /></a></div>
-										</div>
-										<div class="type-post">
-											<div class="entry-cover"><a href="#"><img src="{{ asset('template/assets/images/media-engagement2.jpg') }}" alt="Trending" /></a></div>
-										</div>
-										<div class="type-post">
-											<div class="entry-cover"><a href="#"><img src="{{ asset('template/assets/images/team.jpg') }}" alt="Trending" /></a></div>
-										</div>
-										<div class="type-post">
-											<div class="entry-cover"><a href="#"><img src="{{ asset('template/assets/images/awareness.jpg') }}" alt="Trending" /></a></div>
-										</div>
+									<div class="trending-carousel">
+										@foreach($album->images as $image)					
+											<div class="type-post">
+												<div class="entry-cover"><a href="#"><img src="{{ asset($image->image_url) }}" alt="{{ $album->category_str }}" /></a></div>
+											</div>
+										@endforeach
 									</div>
-									<img class="current-slide-display" src="{{ asset('template/assets/images/team.jpg') }}" alt="Post" 
+									<img class="current-slide-display" src="{{ asset($album->images[0]->image_url) }}" alt="{{ $album->category_str }}" 
 										style="display: block; margin-left: auto; margin-right: auto;" />
 								</div>
 							</div><!-- Row /- -->

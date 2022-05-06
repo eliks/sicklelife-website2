@@ -23,6 +23,7 @@ Route::get('/our-work', 'App\Http\Controllers\HomeController@ourwork')->name('ou
 Route::get('/news', 'App\Http\Controllers\HomeController@news')->name('news');
 Route::get('/blog', 'App\Http\Controllers\HomeController@blog')->name('blog');
 Route::get('/gallery', 'App\Http\Controllers\HomeController@gallery')->name('gallery');
+Route::get('/album/{id}/{slug?}', 'App\Http\Controllers\HomeController@albumShow')->name('album.show');
 Route::get('/gallerydetails', 'App\Http\Controllers\HomeController@gallerydetails')->name('gallerydetails');
 Route::get('/events', 'App\Http\Controllers\HomeController@events')->name('events');
 Route::get('/events/{id}/{slug?}', 'App\Http\Controllers\HomeController@eventShow')->name('events.show');
@@ -37,6 +38,11 @@ Auth::routes(['register' => false]);
 
 Route::middleware(['auth'])->prefix('dashboard')->group(function () {
     Route::get('/', [App\Http\Controllers\DashboardController::class, 'index'])->name('dashboard.index');
+    Route::post('/album/{album}/add_image', 'App\Http\Controllers\DashAlbumController@addImage')->name('dashboard.album.add_image');
+    Route::post('/album/{album}/remove_image', 'App\Http\Controllers\DashAlbumController@removeImage')->name('dashboard.album.remove_image');
     Route::resource('blog', App\Http\Controllers\DashBlogController::class, ["as" =>"dashboard"]);
     Route::resource('user', App\Http\Controllers\DashUserController::class, ["as" =>"dashboard"]);
+    Route::resource('image', App\Http\Controllers\DashImageController::class, ["as" =>"dashboard"]);
+    Route::resource('album', App\Http\Controllers\DashAlbumController::class, ["as" =>"dashboard"]);
+    Route::resource('teammember', App\Http\Controllers\DashTeammemberController::class, ["as" =>"dashboard"]);
 });

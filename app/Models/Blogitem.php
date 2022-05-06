@@ -25,7 +25,7 @@ class Blogitem extends Model
 
     public function authors()
     {
-        return $this->belongsToMany("App\Models\TeamMember", "blogitem_authors", "blogitem_id", "author_id");
+        return $this->belongsToMany("App\Models\TeamMember", "blogitem_authors", "blogitem_id", "author_id")->orderBy("sort_rank");
     }
 
     public function author()

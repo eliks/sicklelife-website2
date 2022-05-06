@@ -14,7 +14,10 @@
 <!-- Page Inner -->
 <div class="page-inner">
     <div class="page-title">
-        <h3 class="breadcrumb-header">Users List</h3>
+        <h3 class="breadcrumb-header">
+            Users List
+            <a href="{{ route('dashboard.user.create') }}" class="btn btn-default pull-right">Create User</a>
+        </h3>
     </div>
     <div id="main-wrapper">
         <div class="row">
@@ -54,10 +57,20 @@
                                         <td>{{ $k + 1 }}</td>
                                         <td>{{ $user->name }}</td>
                                         <td>{{ $user->email }}</td>
-                                        <td>{{ $user->user_type_id }}</td>
-                                        <td>{{ $user->added_by_id }}</td>
+                                        <td>{{ $user->type_name }}</td>
+                                        <td>{{ $user->added_by_name }}</td>
                                         <td>{{ $user->created_at }}</td>
-                                        <td></td>
+                                        <td>
+                                            <a href="{{ route('dashboard.user.show', ['user' => $user]) }}" class="text-info" title="View details">
+                                                <i class="fa fa-crosshairs"></i>
+                                            </a>
+                                            <a href="{{ route('dashboard.user.edit', ['user' => $user]) }}" class="text-warning" title="Edit details">
+                                                <i class="fa fa-edit"></i>
+                                            </a>
+                                            <a href="{{ route('dashboard.user.show', ['user' => $user]) }}" class="text-danger" title="Suspend Account">
+                                                <i class="fa fa-times-circle-o"></i>
+                                            </a>
+                                        </td>
                                     </tr>
                                 @endforeach
                             </tbody>

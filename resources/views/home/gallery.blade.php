@@ -71,17 +71,17 @@
 										<div class="type-post post-position">
 											<div class="entry-cover">
 												<div class="post-meta">
-													<span class="byline">by <a href="{{ route('gallerydetails', ['ref'=>$album['ref']]) }}" title="{{ $album['author'] }}">{{ $album['author'] }}</a></span>
-													<span class="post-date"><a href="{{ route('gallerydetails', ['ref'=>$album['ref']]) }}">MARCH 17, 2017</a></span>
+													<span class="byline">by <a href="{{ $album->url }}" title="{{ $album->author_name }}">{{ $album->author_name }}</a></span>
+													<span class="post-date"><a href="{{ $album->url }}">MARCH 17, 2017</a></span>
 												</div>
-												<a href="{{ route('gallerydetails') }}"><img src="{{ $album['img_url'] }}" alt="Post" /></a>
+												<a href="{{ route('gallerydetails') }}"><img src="{{ asset($album->image_url) }}" alt="Post" /></a>
 											</div>
 											<div class="entry-content">
 												<div class="entry-header">	
-													<span class="post-category"><a href="{{ route('gallerydetails', ['ref'=>$album['ref']]) }}" title="{{ $album['category'] }}">{{ $album['category'] }}</a></span>
-													<h3 class="entry-title"><a href="{{ route('gallerydetails', ['ref'=>$album['ref']]) }}" title="{{ $album['title'] }}">{{ $album['title'] }}</a></h3>
+													<span class="post-category"><a href="{{ $album->url }}" title="{{ $album->category_str }}">{{ $album->category_str }}</a></span>
+													<h3 class="entry-title"><a href="{{ $album->url }}" title="{{ $album->title }}">{{ $album->title }}</a></h3>
 												</div>
-												<a href="{{ route('gallerydetails', ['ref'=>$album['ref']]) }}" title="View Photos">View Photos</a>
+												<a href="{{ $album->url }}" title="View Photos">View Photos</a>
 											</div>
 										</div>
 									</div>

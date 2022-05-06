@@ -16,6 +16,7 @@ class CreateBlogitemsTable extends Migration
         Schema::create('blogitems', function (Blueprint $table) {
             $table->id();
 
+            $table->boolean('published')->default(1);
             $table->string('title', 256)->nullable();
             $table->text('brief')->nullable();
             $table->longText('body')->nullable();

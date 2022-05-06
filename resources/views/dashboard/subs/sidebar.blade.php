@@ -15,11 +15,31 @@
                             </li>
                             <li>
                                 <a href="javascript:void(0)">
-                                    <i class="menu-icon icon-image"></i><span>Blog</span><i class="accordion-icon fa fa-angle-left"></i>
+                                    <i class="menu-icon icon-list"></i><span>Blog</span><i class="accordion-icon fa fa-angle-left"></i>
                                 </a>
                                 <ul class="sub-menu">
                                     <li><a href="{{ route('dashboard.blog.index') }}">All Articles</a></li>
                                     <li><a href="{{ route('dashboard.blog.create') }}">New Article</a></li>
+                                </ul>
+                            </li>
+                            <li>
+                                <a href="javascript:void(0)">
+                                    <i class="menu-icon fa fa-user-md"></i><span>Team Members</span><i class="accordion-icon fa fa-angle-left"></i>
+                                </a>
+                                <ul class="sub-menu">
+                                    <li><a href="{{ route('dashboard.teammember.index') }}">All Team Members</a></li>
+                                    <li><a href="{{ route('dashboard.teammember.create') }}">New Team Member</a></li>
+                                </ul>
+                            </li>
+                            <li>
+                                <a href="javascript:void(0)">
+                                    <i class="menu-icon icon-image"></i><span>Images</span><i class="accordion-icon fa fa-angle-left"></i>
+                                </a>
+                                <ul class="sub-menu">
+                                <li><a href="{{ route('dashboard.image.index') }}">All Images</a></li>
+                                    <li><a href="{{ route('dashboard.image.create') }}">New Image</a></li>
+                                    <li><a href="{{ route('dashboard.album.index') }}">All Albums</a></li>
+                                    <li><a href="{{ route('dashboard.album.create') }}">New Album</a></li>
                                 </ul>
                             </li>
                             <li>
@@ -37,6 +57,11 @@
                                 </a>
                             </li>
                             <li class="menu-divider"></li>
+                            <li>
+                                <a href="{{ route('index') }}" target="_blank">
+                                    <i class="menu-icon fa fa-external-link-square"></i><span>Website</span>
+                                </a>
+                            </li>
                             <li>
                                 <a href="#">
                                     <i class="menu-icon icon-public"></i><span>Changelog</span><span class="label label-danger">1.0</span>

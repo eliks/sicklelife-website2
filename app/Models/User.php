@@ -17,9 +17,7 @@ class User extends \TCG\Voyager\Models\User
      * @var array
      */
     protected $fillable = [
-        'name',
-        'email',
-        'password',
+        'name', 'email', 'email_verified_at', 'password', 'user_type_id', 'added_by_id'
     ];
 
     /**
@@ -40,4 +38,24 @@ class User extends \TCG\Voyager\Models\User
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    public function type()
+    {
+        return $this->belongsTo("App\Models\UserType", "user_type_id");
+    }
+
+    public function addedBy()
+    {
+        return $this->belongsTo("App\Models\User", "added_by_id");
+    }
+
+    public function getAddedByNameAttribute()
+    {
+        return $this->addedBy?$this->addedBy->name:"-";
+    }
+
+    public function getTypeNameAttribute()
+    {
+        return $this->type?$this->type->name:"-";
+    }
 }

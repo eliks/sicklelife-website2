@@ -28,7 +28,7 @@ class StoreDashBlogRequest extends FormRequest
             'brief' => 'required|min:3|max:1024',
             'headline-image' => 'integer|min:1',
             'category' => 'required|integer', 
-            'authors' => 'required|array', 
+            'authors' => 'required|array|min:2', 
             'authors.*' => 'required|integer|min:1', 
             'listing_date' => 'required|string|min:6|max:10', 
             'body' => 'required|string|min:6',

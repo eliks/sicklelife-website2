@@ -19,7 +19,7 @@ class ImageSeeder extends Seeder
         DB::table('images')->insert(
             [
                 "id" => 1,
-                "name" => "Sickle Life Team",
+                "name" => date('YmdHis-')."Sickle Life Team",
                 "image_url" => "template/assets/images/team.jpg",
             ]
         );
@@ -27,7 +27,7 @@ class ImageSeeder extends Seeder
         DB::table('images')->insert(
             [
                 "id" => 2,
-                "name" => "Media Engagement",
+                "name" => date('YmdHis-')."Media Engagement",
                 "image_url" => "template/assets/images/media-engagement2.jpg",
             ]
         );
@@ -35,7 +35,7 @@ class ImageSeeder extends Seeder
         DB::table('images')->insert(
             [
                 "id" => 3,
-                "name" => "Medical Services",
+                "name" => date('YmdHis-')."Medical Services",
                 "image_url" => "template/assets/images/medical-services.jpg",
             ]
         );
@@ -43,7 +43,7 @@ class ImageSeeder extends Seeder
         DB::table('images')->insert(
             [
                 "id" => 4,
-                "name" => "Education",
+                "name" => date('YmdHis-')."Education",
                 "image_url" => "template/assets/images/education.jpg",
             ]
         );
@@ -51,7 +51,7 @@ class ImageSeeder extends Seeder
         DB::table('images')->insert(
             [
                 "id" => 5,
-                "name" => "Sadat",
+                "name" => date('YmdHis-')."Sadat",
                 "image_url" => "template/assets/images/sadat.jpg",
             ]
         );
@@ -59,7 +59,7 @@ class ImageSeeder extends Seeder
         DB::table('images')->insert(
             [
                 "id" => 6,
-                "name" => "CSD",
+                "name" => date('YmdHis-')."CSD",
                 "image_url" => "template/assets/images/what_is_scd.jpg",
             ]
         );
@@ -67,7 +67,7 @@ class ImageSeeder extends Seeder
         DB::table('images')->insert(
             [
                 "id" => 7,
-                "name" => "CS Day",
+                "name" => date('YmdHis-')."CS Day",
                 "image_url" => "template/assets/images/scd-2019.jpg",
             ]
         );
@@ -75,7 +75,7 @@ class ImageSeeder extends Seeder
         DB::table('images')->insert(
             [
                 "id" => 8,
-                "name" => "Harmattan",
+                "name" => date('YmdHis-')."Harmattan",
                 "image_url" => "template/assets/images/harmattan.jpg",
             ]
         );
@@ -83,7 +83,7 @@ class ImageSeeder extends Seeder
         DB::table('images')->insert(
             [
                 "id" => 9,
-                "name" => "Sickle status",
+                "name" => date('YmdHis-')."Sickle status",
                 "image_url" => "template/assets/images/sicklestatus.jpeg",
             ]
         );

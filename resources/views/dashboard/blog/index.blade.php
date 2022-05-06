@@ -14,7 +14,10 @@
 <!-- Page Inner -->
 <div class="page-inner">
         <div class="page-title">
-            <h3 class="breadcrumb-header">Blog Articles List</h3>
+            <h3 class="breadcrumb-header">
+                Blog Articles List
+                <a href="{{ route('dashboard.blog.create') }}" class="btn btn-default pull-right">Create Blog Article</a>
+            </h3>
         </div>
     <div id="main-wrapper">
         <div class="row">
@@ -57,7 +60,17 @@
                                         <td>{{ count($blogitem->authors) }}</td>
                                         <td>{{ $blogitem->listing_date }}</td>
                                         <td>{{ $blogitem->added_by_name }}</td>
-                                        <td></td>
+                                        <td>
+                                            <a href="{{ route('dashboard.blog.show', ['blog' => $blogitem]) }}" class="text-info" title="View details">
+                                                <i class="fa fa-crosshairs"></i>
+                                            </a>
+                                            <a href="{{ route('dashboard.blog.edit', ['blog' => $blogitem]) }}" class="text-warning" title="Edit details">
+                                                <i class="fa fa-edit"></i>
+                                            </a>
+                                            <a href="{{ route('dashboard.blog.show', ['blog' => $blogitem]) }}" class="text-danger" title="Unpublish">
+                                                <i class="fa fa-times-circle-o"></i>
+                                            </a>
+                                        </td>
                                     </tr>
                                 @endforeach
                             </tbody>

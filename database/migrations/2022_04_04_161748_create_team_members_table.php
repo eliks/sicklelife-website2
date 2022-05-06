@@ -26,6 +26,7 @@ class CreateTeamMembersTable extends Migration
             $table->text('sm_instagram')->nullable();
             $table->text('sm_linkedin')->nullable();
             $table->boolean('is_virtual')->default(0);
+            $table->integer('added_by_id')->default(1)->unsigned();
 
             $table->softDeletes();
             $table->timestamp('created_at')->default(date('y-m-d H:i:s', strtotime('now')));

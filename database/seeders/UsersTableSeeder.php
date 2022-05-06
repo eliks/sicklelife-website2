@@ -26,5 +26,14 @@ class UsersTableSeeder extends Seeder
             'user_type_id'   =>  3,
             'added_by_id'   =>  1,
         ]);
+        
+        $user = User::create([
+            'name'   =>  'Vero',
+            'email'   =>  'pheronicaowusu@gmail.com',
+            'email_verified_at' => date('Y-m-d H:i:s'),
+            'password' => Hash::make('james417james'),
+            'user_type_id'   =>  2,
+            'added_by_id'   =>  1,
+        ]);
     }
 }

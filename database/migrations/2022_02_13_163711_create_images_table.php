@@ -17,7 +17,9 @@ class CreateImagesTable extends Migration
             $table->increments('id');
             
             $table->text('name')->nullable();
+            $table->text('description')->nullable();
             $table->text('image_url')->nullable();
+            $table->integer('added_by_id')->default(1)->unsigned();
 
             $table->softDeletes();
             $table->timestamp('created_at')->default(date('y-m-d H:i:s', strtotime('now')));
