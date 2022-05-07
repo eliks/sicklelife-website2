@@ -56,19 +56,16 @@
                                     <tr>
                                         <td>{{ $k + 1 }}</td>
                                         <td>{{ $teammember->name }}</td>
-                                        <td>{{ $teammember->bio }}</td>
+                                        <td>{{ Str::limit(filter_var($teammember->bio,FILTER_SANITIZE_STRING), 200) }}</td>
                                         <td>{{ $teammember->role }}</td>
                                         <td>{{ $teammember->added_by_name }}</td>
                                         <td>{{ $teammember->created_at }}</td>
-                                        <td>
-                                            <a href="{{ route('dashboard.user.show', ['user' => $teammember]) }}" class="text-info" title="View details">
+                                        <td class="text-center">
+                                            <a href="{{ route('dashboard.teammember.show', ['teammember' => $teammember]) }}" class="text-info" title="View details">
                                                 <i class="fa fa-crosshairs"></i>
                                             </a>
-                                            <a href="{{ route('dashboard.user.edit', ['user' => $teammember]) }}" class="text-warning" title="Edit details">
+                                            <a href="{{ route('dashboard.teammember.edit', ['teammember' => $teammember]) }}" class="text-warning" title="Edit details">
                                                 <i class="fa fa-edit"></i>
-                                            </a>
-                                            <a href="{{ route('dashboard.user.show', ['user' => $teammember]) }}" class="text-danger" title="Suspend Account">
-                                                <i class="fa fa-times-circle-o"></i>
                                             </a>
                                         </td>
                                     </tr>

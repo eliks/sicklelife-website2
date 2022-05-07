@@ -17,7 +17,7 @@
 <div class="page-inner">
     <div class="page-title">
         <h3 class="breadcrumb-header">
-            Add New Team Member
+            Edit Team Member
             <a href="{{ route('dashboard.teammember.index') }}" class="btn btn-default pull-right">Team Members List</a>
         </h3>
     </div>
@@ -26,16 +26,17 @@
             <div class="col-md-8">
                 <div class="panel panel-white">
                     <div class="panel-heading clearfix">
-                        <h4 class="panel-title">New Team Member Form</h4>
+                        <h4 class="panel-title">Edit Team Member Form</h4>
                     </div>
                     <div class="panel-body">
-                        <form method="POST" action="{{ route('dashboard.teammember.store') }}" class="form-horizontal" onsubmit="fetchBodyText();">
+                        <form method="POST" action="{{ route('dashboard.teammember.update', ['teammember' => $teammember]) }}" class="form-horizontal" onsubmit="fetchBodyText();">
+                            @method('PUT')
                             @csrf
                             <input type="hidden" name="bio" id="bio">
                             <div class="form-group @error('name') has-error  @enderror">
                                 <label for="name" class="col-sm-2 control-label">Name</label>
                                 <div class="col-sm-10">
-                                    <input type="text" class="form-control" id="name" name="name" value="{{ old('name') }}">
+                                    <input type="text" class="form-control" id="name" name="name" value="{{ old('name') ?? $teammember->name }}">
                                     @error('name')
                                         <p class="help-block" style="margin-bottom:0;">{{ $message }}</p>
                                     @enderror
@@ -46,7 +47,7 @@
                                 <div class="col-sm-10">
                                     <select style="margin-bottom:15px;" class="form-control" id="photo" name="photo" onchange="updateHeadlineImage()">
                                         @foreach($images as $image)
-                                            <option value="{{ $image->id }}" {{ old("photo") == $image->id ? "selected" : "" }}>{{ $image->name }}</option>
+                                            <option value="{{ $image->id }}" {{ old("photo") == $image->id ? "selected" : ($teammember->image_id == $image->id ? "selected" : "") }}>{{ $image->name }}</option>
                                         @endforeach
                                     </select>
                                     @error('photo')
@@ -57,7 +58,7 @@
                             <div class="form-group @error('role') has-error  @enderror">
                                 <label for="role" class="col-sm-2 control-label">Role</label>
                                 <div class="col-sm-10">
-                                    <input type="text" class="form-control" id="role" name="role" value="{{ old('role') }}">
+                                    <input type="text" class="form-control" id="role" name="role" value="{{ old('role') ?? $teammember->role  }}">
                                     @error('role')
                                         <p class="help-block" style="margin-bottom:0;">{{ $message }}</p>
                                     @enderror
@@ -67,8 +68,8 @@
                                 <label for="display_as_team_member" class="col-sm-2 control-label">Display as Team Member</label>
                                 <div class="col-sm-10">
                                     <select style="margin-bottom:15px;" class="form-control" id="display_as_team_member" name="display_as_team_member">
-                                        <option value="1" {{ old("display_as_team_member") == 1 ? "selected" : "" }}>YES</option>
-                                        <option value="0" {{ old("display_as_team_member") == 0 ? "selected" : "" }}>NO</option>
+                                        <option value="0" {{ old("display_as_team_member") == 0 ? "selected" : (!in_array(old("display_as_team_member"), ["0","1"]) && !$teammember->displayed_as_teammember ? "selected" : "") }}>NO</option>
+                                        <option value="1" {{ old("display_as_team_member") == 1 ? "selected" : (!in_array(old("display_as_team_member"), ["0","1"]) && $teammember->displayed_as_teammember ? "selected" : "") }}>YES</option>
                                     </select>
                                     @error('display_as_team_member')
                                         <p class="help-block" style="margin-bottom:0;">{{ $message }}</p>
@@ -78,7 +79,7 @@
                             <div class="form-group @error('bio') has-error  @enderror">
                                 <label class="col-sm-2 control-label">Bio</label>
                                 <div class="col-sm-10">
-                                    <div class="summernote">{!! old("bio") !!}</div>
+                                    <div class="summernote">{!! old("bio") ?? $teammember->bio  !!}</div>
                                     @error('bio')
                                         <p class="help-block" style="margin-bottom:0;">{{ $message }}</p>
                                     @enderror
@@ -87,7 +88,7 @@
                             <div class="form-group @error('sm_facebook') has-error  @enderror">
                                 <label for="sm_facebook" class="col-sm-2 control-label">Facebook Link</label>
                                 <div class="col-sm-10">
-                                    <input type="text" class="form-control" id="sm_facebook" name="sm_facebook" value="{{ old('sm_facebook') }}">
+                                    <input type="text" class="form-control" id="sm_facebook" name="sm_facebook" value="{{ old('sm_facebook') ?? $teammember->sm_facebook  }}">
                                     @error('sm_facebook')
                                         <p class="help-block" style="margin-bottom:0;">{{ $message }}</p>
                                     @enderror
@@ -96,7 +97,7 @@
                             <div class="form-group @error('sm_twitter') has-error  @enderror">
                                 <label for="sm_twitter" class="col-sm-2 control-label">Twitter Link</label>
                                 <div class="col-sm-10">
-                                    <input type="text" class="form-control" id="sm_twitter" name="sm_twitter" value="{{ old('sm_twitter') }}">
+                                    <input type="text" class="form-control" id="sm_twitter" name="sm_twitter" value="{{ old('sm_twitter') ?? $teammember->sm_twitter  }}">
                                     @error('sm_twitter')
                                         <p class="help-block" style="margin-bottom:0;">{{ $message }}</p>
                                     @enderror
@@ -105,7 +106,7 @@
                             <div class="form-group @error('sm_linkedin') has-error  @enderror">
                                 <label for="sm_linkedin" class="col-sm-2 control-label">LinkedIn Link</label>
                                 <div class="col-sm-10">
-                                    <input type="text" class="form-control" id="sm_linkedin" name="sm_linkedin" value="{{ old('sm_linkedin') }}">
+                                    <input type="text" class="form-control" id="sm_linkedin" name="sm_linkedin" value="{{ old('sm_linkedin') ?? $teammember->sm_linkedin  }}">
                                     @error('sm_linkedin')
                                         <p class="help-block" style="margin-bottom:0;">{{ $message }}</p>
                                     @enderror
@@ -114,7 +115,7 @@
                             <div class="form-group @error('sm_instagram') has-error  @enderror">
                                 <label for="sm_instagram" class="col-sm-2 control-label">Instagram Link</label>
                                 <div class="col-sm-10">
-                                    <input type="text" class="form-control" id="sm_instagram" name="sm_instagram" value="{{ old('sm_instagram') }}">
+                                    <input type="text" class="form-control" id="sm_instagram" name="sm_instagram" value="{{ old('sm_instagram') ?? $teammember->sm_instagram  }}">
                                     @error('sm_instagram')
                                         <p class="help-block" style="margin-bottom:0;">{{ $message }}</p>
                                     @enderror
@@ -127,7 +128,7 @@
                                     <button type="reset" class="btn btn-block btn-warning">Clear</button>
                                 </div>
                                 <div class="col-md-6">
-                                    <button type="submit" class="btn btn-block btn-success">Submit</button>
+                                    <button type="submit" class="btn btn-block btn-success">Update</button>
                                 </div>
                             </div>
                         </form>

@@ -3,7 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Http\Requests\StoreDashTeammemberRequest;
 use App\Models\TeamMember;
+use App\Models\Image;
 
 class DashTeammemberController extends Controller
 {
@@ -27,6 +29,7 @@ class DashTeammemberController extends Controller
     public function create()
     {
         $data['active_menu'] = "teammember";
+        $data['images'] = Image::query()->orderBy("name")->get();
 
         return view('dashboard.teammember.create', $data);
     }
@@ -37,9 +40,16 @@ class DashTeammemberController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(StoreDashTeammemberRequest $request)
     {
-        //
+        $data = $request->validated();
+        $data["image_id"] = $data["photo"];
+        $data["displayed_as_teammember"] = $data["display_as_team_member"];
+        $data["added_by_id"] = auth()->user()->id;
+
+        Teammember::create($data);
+
+        return redirect(route("dashboard.teammember.index"));
     }
 
     /**
@@ -50,7 +60,11 @@ class DashTeammemberController extends Controller
      */
     public function show($id)
     {
-        //
+        $data['active_menu'] = "teammember";
+
+        $data["teammember"] = Teammember::with("image")->findOrFail($id);
+
+        return view("dashboard.teammember.show", $data);
     }
 
     /**
@@ -63,6 +77,7 @@ class DashTeammemberController extends Controller
     {
         $data['active_menu'] = "teammember";
         $data["teammember"] = Teammember::findOrFail($id);
+        $data['images'] = Image::query()->orderBy("name")->get();
 
         return view("dashboard.teammember.edit", $data);
     }
@@ -74,9 +89,17 @@ class DashTeammemberController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(StoreDashTeammemberRequest $request, $id)
     {
-        //
+        $teammember = Teammember::findOrFail($id);
+        $data = $request->validated();
+        $data["image_id"] = $data["photo"];
+        $data["displayed_as_teammember"] = $data["display_as_team_member"];
+
+        $teammember->update($data);
+        $teammember;
+
+        return redirect(route("dashboard.teammember.index"));
     }
 
     /**
