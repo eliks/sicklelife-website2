@@ -11,6 +11,8 @@ class Album extends Model
     use HasFactory;
 
     protected $fillable = ['published', 'title', 'description', 'category_id', 'image_id', 'author_id', 'added_by_id', 'listing_date'];
+    protected $appends = ["image_url"];
+
 
     public function scopePublished($query, bool $value=true)
     {
@@ -25,6 +27,11 @@ class Album extends Model
     public function images()
     {
         return $this->belongsToMany("App\Models\Image", "album_images");
+    }
+    
+    public function baskets()
+    {
+        return $this->belongsToMany("App\Models\Basket", "album_baskets");
     }
 
     public function addedBy()

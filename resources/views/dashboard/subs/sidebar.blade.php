@@ -37,9 +37,8 @@
                                 </a>
                                 <ul class="sub-menu">
                                 <li><a href="{{ route('dashboard.image.index') }}">All Images</a></li>
-                                    <li><a href="{{ route('dashboard.image.create') }}">New Image</a></li>
-                                    <li><a href="{{ route('dashboard.album.index') }}">All Albums</a></li>
-                                    <li><a href="{{ route('dashboard.album.create') }}">New Album</a></li>
+                                <li><a href="{{ route('dashboard.album.index') }}">All Albums</a></li>
+                                <li><a href="{{ route('dashboard.basket.index') }}">All Baskets</a></li>
                                 </ul>
                             </li>
                             <li>

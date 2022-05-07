@@ -74,7 +74,7 @@ class DashUserController extends Controller
      */
     public function edit($id)
     {
-        $data['active_menu'] = "blog";
+        $data['active_menu'] = "users";
         
         $data["user"] = User::findOrFail($id);
 

@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\Eventitem;
 use App\Models\Blogitem;
 use App\Models\TeamMember;
+use App\Models\Basket;
 use App\Models\Album;
 
 
@@ -135,7 +136,8 @@ class HomeController extends Controller
         //     ]
         // );
 
-        $data["albums"] = Album::with("image")->published()->orderBy("listing_date", "DESC")->get();
+        $data["baskets"] = Basket::whereHas("albums")->orderBy("sort_rank", "DESC")->get();
+        $data["albums"] = Album::with("image", "baskets")->published()->orderBy("listing_date", "DESC")->get();
 
         return view("home.gallery", $data);
     }

@@ -35,6 +35,19 @@
 	<link rel="stylesheet" href="{{ asset('template/assets/css/rtl.css') }}">
 	<link rel="stylesheet" type="text/css" href="{{ asset('template/style.css') }}">
 
+	<style>
+		.btn-special {
+			color: #222222;
+			background-color: #fefefe;
+			border-color: #dedede;
+		}
+		.btn-special.active {
+			color: #ffffff;
+			background-color: #303030;
+			border-color: #202020;
+		}
+	</style>
+
 	<!--[if lt IE 9]>
 		<script src="js/html5/respond.min.js"></script>
     <![endif]-->
@@ -64,10 +77,18 @@
 							<div class="block-title">
 								<h3>Our Gallery</h3>
 							</div>
+							<div class="row">
+								<div class="col-sm-12 basket-menu" style="text-align: center; margin-bottom: 21px;">
+									<a href="#" class="btn btn-special basket active" data-filter="*">All</a>
+									@foreach($baskets as $basket)
+										<a href="#" class="btn btn-special basket" data-filter=".{{ Str::slug($basket->name) }}">{{ $basket->name }}</a>
+									@endforeach
+								</div>
+							</div>
 							<!-- Row -->
 							<div class="row blog-masonry-list">
 								@foreach($albums as $album)
-									<div class="col-lg-4 col-sm-6 blog-masonry-box">
+									<div class="col-lg-4 col-sm-6 blog-masonry-box element-item @foreach($album->baskets as $el_basket) {{ Str::slug($el_basket->name) }} @endforeach">
 										<div class="type-post post-position">
 											<div class="entry-cover">
 												<div class="post-meta">
@@ -123,9 +144,22 @@
 	<script type="text/javascript" src="{{ asset('template/assets/revolution/js/extensions/revolution.extension.parallax.min.js') }}"></script>
 	<script type="text/javascript" src="{{ asset('template/assets/revolution/js/extensions/revolution.extension.slideanims.min.js') }}"></script>
 	<script type="text/javascript" src="{{ asset('template/assets/revolution/js/extensions/revolution.extension.video.min.js') }}"></script>
-	
+	<script src="https://unpkg.com/isotope-layout@3/dist/isotope.pkgd.min.js"></script>
 	<!-- Library - Theme JS -->
 	<script src="{{ asset('template/assets/js/functions.js') }}"></script>
+	<script>
+		// init Isotope
+		var $grid = $('.blog-masonry-list').isotope({
+		// options
+		});
+		// filter items on button click
+		$('.basket-menu').on( 'click', 'a', function() {
+			var filterValue = $(this).attr('data-filter');
+			$grid.isotope({ filter: filterValue });
+			$(".basket-menu a").removeClass("active");
+			$(this).addClass('active');
+		});
+	</script>
 	
 </body>
 </html>

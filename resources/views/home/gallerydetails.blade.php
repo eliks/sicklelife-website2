@@ -85,7 +85,7 @@
 											</div>
 										@endforeach
 									</div>
-									<img class="current-slide-display" src="{{ asset($album->images[0]->image_url) }}" alt="{{ $album->category_str }}" 
+									<img class="current-slide-display img-thumbnail" src="{{ asset($album->images[0]->image_url) }}" alt="{{ $album->category_str }}" 
 										style="display: block; margin-left: auto; margin-right: auto;" />
 								</div>
 							</div><!-- Row /- -->

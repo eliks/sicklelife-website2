@@ -22,6 +22,8 @@ class DatabaseSeeder extends Seeder
         $this->call(EventItemSeeder::class);
         $this->call(TeamMemberSeeder::class);
         $this->call(AlbumSeeder::class);
+        $this->call(BasketTableSeeder::class);
+        $this->call(AlbumBasketTableSeeder::class);
         // \App\Models\User::factory(10)->create();
     }
 }
