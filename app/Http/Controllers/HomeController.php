@@ -39,7 +39,7 @@ class HomeController extends Controller
 
     public function team()
     {
-        $data["core_teammembers"] = TeamMember::orderBy("sort_rank")->get();
+        $data["core_teammembers"] = TeamMember::where("displayed_as_teammember",1)->orderBy("sort_rank")->get();
         return view("home.team", $data);
     }
 

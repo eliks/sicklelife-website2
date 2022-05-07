@@ -17,7 +17,7 @@ class DashTeammemberController extends Controller
     public function index()
     {
         $data['active_menu'] = "teammember";
-        $data['teammembers'] = Teammember::query()->latest()->get();
+        $data['teammembers'] = TeamMember::query()->latest()->get();
         return view('dashboard.teammember.index', $data);
     }
 
@@ -47,7 +47,7 @@ class DashTeammemberController extends Controller
         $data["displayed_as_teammember"] = $data["display_as_team_member"];
         $data["added_by_id"] = auth()->user()->id;
 
-        Teammember::create($data);
+        TeamMember::create($data);
 
         return redirect(route("dashboard.teammember.index"));
     }
@@ -62,7 +62,7 @@ class DashTeammemberController extends Controller
     {
         $data['active_menu'] = "teammember";
 
-        $data["teammember"] = Teammember::with("image")->findOrFail($id);
+        $data["teammember"] = TeamMember::with("image")->findOrFail($id);
 
         return view("dashboard.teammember.show", $data);
     }
@@ -76,7 +76,7 @@ class DashTeammemberController extends Controller
     public function edit($id)
     {
         $data['active_menu'] = "teammember";
-        $data["teammember"] = Teammember::findOrFail($id);
+        $data["teammember"] = TeamMember::findOrFail($id);
         $data['images'] = Image::query()->orderBy("name")->get();
 
         return view("dashboard.teammember.edit", $data);
@@ -91,7 +91,7 @@ class DashTeammemberController extends Controller
      */
     public function update(StoreDashTeammemberRequest $request, $id)
     {
-        $teammember = Teammember::findOrFail($id);
+        $teammember = TeamMember::findOrFail($id);
         $data = $request->validated();
         $data["image_id"] = $data["photo"];
         $data["displayed_as_teammember"] = $data["display_as_team_member"];

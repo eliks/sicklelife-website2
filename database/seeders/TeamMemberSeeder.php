@@ -19,7 +19,7 @@ class TeamMemberSeeder extends Seeder
         DB::table('team_members')->insert(
             [
                 "name" => "Dr. Sefakor Enam Bankas",
-                "image_url" => "template/team/dr_sefakor4.png",
+                "image_id" => 10,
                 "role" => "Founder and Managing Director",
                 "bio" => "<p><b>Reason for interest in Sickle Cell / joining Sickle Life:</b><br>
                 I am person living with Sickle Cell Disease, health advocate and medical doctor and have experienced this condition through several perspectives which have exposed several gaps in the Sickle Cell Disease space locally.<br>
@@ -40,6 +40,7 @@ class TeamMemberSeeder extends Seeder
         DB::table('team_members')->insert(
             [
                 "name" => "Veronica Owusu",
+                "image_id" => 11,
                 "image_url" => "template/team/vero.png",
                 "role" => "Administrative Assistant",
                 "bio" => "<p><b>Joining Sickle Life:</b> <br>
@@ -57,6 +58,7 @@ class TeamMemberSeeder extends Seeder
         DB::table('team_members')->insert(
             [
                 "name" => "Prisca Dede Tetteh",
+                "image_id" => 12,
                 "image_url" => "template/team/prisca.png",
                 "role" => "Support Group Administrator",
                 "bio" => "<p><b>Joining Sickle Life:</b> <br>
@@ -73,7 +75,7 @@ class TeamMemberSeeder extends Seeder
         DB::table('team_members')->insert(
             [
                 "name" => "Naomi  Akom Okadja",
-                "image_url" => "template/team/naomi.png",
+                "image_id" => 13,
                 "role" => "Support Group and Welfare Administrator",
                 "bio" => "<p><b>Joining Sickle Life:</b> <br>
                 Since I am a person living with SCD I  deemed it fit to assist in advocacy in every way I can, to educate people on the disease.</p>
@@ -89,7 +91,7 @@ class TeamMemberSeeder extends Seeder
         DB::table('team_members')->insert(
             [
                 "name" => "Serian Emefa Agbenya",
-                "image_url" => "template/team/emefa2.png",
+                "image_id" => 14,
                 "role" => "Marketing and Branding",
                 "bio" => "<p><b>Joining Sickle Life:</b> <br>
                 To be an advocate and to educate the general public about the condition and to make informed choices since I grew up watching my friend living with the condition and the pain and stress it comes with it but she was able to achieve her aims without been limited with her condition. It made me admire her willingness to fight on so it made me join Sickle Life so I can encourage persons living with SCD not to give up their dreams since they can achieve their dreams if they put their minds to it without making the condition define who they really are and what they want to become in future.</p>
@@ -107,6 +109,7 @@ class TeamMemberSeeder extends Seeder
         DB::table('team_members')->insert(
             [
                 "name" => "Nathaniel Dela Seneadza",
+                "image_id" => 15,
                 "image_url" => "template/team/nathaniel.png",
                 "role" => "Programs Team Lead",
                 "bio" => "<p><b>Joining Sickle Life:</b> <br>
@@ -122,7 +125,7 @@ class TeamMemberSeeder extends Seeder
         DB::table('team_members')->insert(
             [
                 "name" => "Ruth Owusu Boateng",
-                "image_url" => "template/team/ruth.png",
+                "image_id" => 16,
                 "role" => "Marketing and Branding",
                 "bio" => "<p><b>Joining Sickle Life:</b> <br>
                 To help create awareness of the disease to the larger people. Most people have little or no idea about the condition, making them sometimes stigmatize people living with the disease. I joined to help reach out to a lot of people through health education and screening programs, to educate them and also help them know their genotype.</p>
@@ -139,7 +142,7 @@ class TeamMemberSeeder extends Seeder
         DB::table('team_members')->insert(
             [
                 "name" => "Felix Amanor Otu",
-                "image_url" => "template/team/felix.png",
+                "image_id" => 17,
                 "role" => "Business and Finance",
                 "bio" => "<p><b>Joining Sickle Life:</b> <br>
                 As a person thriving with SCD I want to be a voice of hope to other persons living with SCD. I want to contribute to the research on how the lives of persons living with SCD can be improved and how health workers can better understand SCD patients. I believe this is how I can contribute to addressing some of the social inequities in our health care system with focus on persons living with SCD.</p>
@@ -155,7 +158,7 @@ class TeamMemberSeeder extends Seeder
         DB::table('team_members')->insert(
             [
                 "name" => "Sefakor Aku Biddah",
-                "image_url" => "template/team/sefakor.png",
+                "image_id" => 18,
                 "role" => "Programs",
                 "bio" => "<p><b>Joining Sickle Life:</b> <br>
                 Desire to help educate and create awareness for the sickle cell disease</p>
