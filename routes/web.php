@@ -41,6 +41,7 @@ Route::middleware(['auth'])->prefix('dashboard')->group(function () {
     Route::post('/album/{album}/add_image', 'App\Http\Controllers\DashAlbumController@addImage')->name('dashboard.album.add_image');
     Route::post('/album/{album}/remove_image', 'App\Http\Controllers\DashAlbumController@removeImage')->name('dashboard.album.remove_image');
     Route::post('/basket/{basket}/add_album', 'App\Http\Controllers\DashBasketController@addAlbum')->name('dashboard.basket.add_album');
+    Route::post('/basket/{basket}/remove_album', 'App\Http\Controllers\DashBasketController@removeAlbum')->name('dashboard.basket.remove_album');
     Route::resource('blog', App\Http\Controllers\DashBlogController::class, ["as" =>"dashboard"]);
     Route::resource('user', App\Http\Controllers\DashUserController::class, ["as" =>"dashboard"]);
     Route::resource('image', App\Http\Controllers\DashImageController::class, ["as" =>"dashboard"]);

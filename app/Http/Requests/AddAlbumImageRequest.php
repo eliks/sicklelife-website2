@@ -24,7 +24,7 @@ class AddAlbumImageRequest extends FormRequest
     public function rules()
     {
         return [
-            'add_image' => 'integer|min:1',
+            'add_image' => 'required|integer|min:1',
         ];
     }
 }

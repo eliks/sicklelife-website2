@@ -8,4 +8,6 @@ use Illuminate\Database\Eloquent\Model;
 class AlbumBasket extends Model
 {
     use HasFactory;
+
+    protected $fillable = ["basket_id", "album_id", "added_by_id"];
 }

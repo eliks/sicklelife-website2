@@ -63,19 +63,23 @@
                     </div>
                     <div class="panel-body">
                         <div class="row">
-                            @foreach($album->images as $k => $al_image)
-                                <div class="col-md-4">
-                                    <img src="{{ asset($al_image->image_url) }}" alt="{{ $al_image->name }}" class="img-thumbnail" style="margin-bottom: 7px;" title="{{ $al_image->name }}">
-                                    <form method="POST" action="{{ route('dashboard.album.remove_image', ['album' => $album]) }}" class="form-horizontal">
-                                        @csrf
-                                        <input type="hidden" name="add_image" value="{{ $al_image->id }}">
-                                        <button class="btn btn-block btn-sm btn-default" style="margin-bottom: 21px;">Click to remove image</button>
-                                    </form>
-                                </div>
-                                @if(($k+1)%3 == 0)
-                                    <div class="clearfix"></div>
-                                @endif
-                            @endforeach
+                            @if(count($album->images) > 0)
+                                @foreach($album->images as $k => $al_image)
+                                    <div class="col-md-4">
+                                        <img src="{{ asset($al_image->image_url) }}" alt="{{ $al_image->name }}" class="img-thumbnail" style="margin-bottom: 7px;" title="{{ $al_image->name }}">
+                                        <form method="POST" action="{{ route('dashboard.album.remove_image', ['album' => $album]) }}" class="form-horizontal">
+                                            @csrf
+                                            <input type="hidden" name="add_image" value="{{ $al_image->id }}">
+                                            <button class="btn btn-block btn-sm btn-default" style="margin-bottom: 21px;">Click to remove image</button>
+                                        </form>
+                                    </div>
+                                    @if(($k+1)%3 == 0)
+                                        <div class="clearfix"></div>
+                                    @endif
+                                @endforeach
+                            @else
+                                <p>No images added to album yet.</p>
+                            @endif
                         </div>
                     </div>
                 </div>

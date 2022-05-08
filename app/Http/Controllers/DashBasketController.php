@@ -5,7 +5,9 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Basket;
 use App\Models\Album;
+use App\Models\AlbumBasket;
 use App\Http\Requests\StoreDashBasketRequest;
+use App\Http\Requests\AddBasketAlbumRequest;
 
 class DashBasketController extends Controller
 {
@@ -102,8 +104,25 @@ class DashBasketController extends Controller
         //
     }
 
-    public function addAlbum(Request $request, Basket $basket)
+    public function addAlbum(AddBasketAlbumRequest $request, Basket $basket)
     {
-        return $basket;
+        $data = $request->validated();
+
+        AlbumBasket::create([
+            "basket_id" => $basket->id,
+            "album_id" => $data["add_album"],
+            "added_by_id" => auth()->user()->id
+        ]);
+
+        return redirect()->back();
+    }
+
+    public function removeAlbum(AddBasketAlbumRequest $request, Album $basket)
+    {
+        $data = $request->validated();
+
+        AlbumBasket::where("basket_id", $basket->id)->where("album_id", $data["add_album"])->delete();
+
+        return redirect()->back();
     }
 }

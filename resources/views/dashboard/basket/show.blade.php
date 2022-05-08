@@ -53,6 +53,32 @@
                         </table>
                     </div>
                 </div>
+                <div class="panel panel-white">
+                    <div class="panel-heading clearfix">
+                        <h4 class="panel-title">Basket Albums</h4>
+                    </div>
+                    <div class="panel-body">
+                        <div class="row">
+                            @if(count($basket->albums) > 0)
+                                @foreach($basket->albums as $k => $bs_album)
+                                    <div class="col-md-4" title="{{ $bs_album->name }}">
+                                        <img src="{{ asset($bs_album->image_url) }}" alt="{{ $bs_album->name }}" class="img-thumbnail" style="margin-bottom: 7px;" title="{{ $bs_album->name }}">
+                                        <form method="POST" action="{{ route('dashboard.basket.remove_album', ['basket' => $basket]) }}" class="form-horizontal">
+                                            @csrf
+                                            <input type="hidden" name="add_album" value="{{ $bs_album->id }}">
+                                            <button class="btn btn-block btn-sm btn-default" style="margin-bottom: 21px;">Click to remove album</button>
+                                        </form>
+                                    </div>
+                                    @if(($k+1)%3 == 0)
+                                        <div class="clearfix"></div>
+                                    @endif
+                                @endforeach
+                            @else
+                                <col-md-12 class="text-center">No Albums added yet.</col-md-12>
+                            @endif
+                        </div>
+                    </div>
+                </div>
             </div>
             <div class="col-md-4">
                 <div class="panel panel-white">
@@ -60,37 +86,41 @@
                         <h4 class="panel-title">Add Album to Basket</h4>
                     </div>
                     <div class="panel-body">
-                        <form method="POST" action="{{ route('dashboard.basket.add_album', ['basket' => $basket]) }}" class="form-horizontal">
-                            @csrf
-                            <div class="row">
-                                <div class="col-md-12">
-                                    <div class="form-group @error('add_album') has-error  @enderror">
-                                        <label class="col-sm-3 control-label">Album</label>
-                                        <div class="col-sm-9">
-                                            <select style="margin-bottom:15px;" class="form-control" id="add_album" name="add_album" onchange="updateAlbumImage()">
-                                                @foreach($addable_albums as $ad_album)
-                                                    <option value="{{ $ad_album->id }}" {{ old("add_album") == $ad_album->id ? "selected" : "" }}>{{ $ad_album->title }}</option>
-                                                @endforeach
-                                            </select>
-                                            @error('add_album')
-                                                <p class="help-block" style="margin-bottom:0;">{{ $message }}</p>
-                                            @enderror
+                        @if(count($addable_albums) > 0)
+                            <form method="POST" action="{{ route('dashboard.basket.add_album', ['basket' => $basket]) }}" class="form-horizontal">
+                                @csrf
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <div class="form-group @error('add_album') has-error  @enderror">
+                                            <label class="col-sm-3 control-label">Album</label>
+                                            <div class="col-sm-9">
+                                                <select style="margin-bottom:15px;" class="form-control" id="add_album" name="add_album" onchange="updateAlbumImage()">
+                                                    @foreach($addable_albums as $ad_album)
+                                                        <option value="{{ $ad_album->id }}" {{ old("add_album") == $ad_album->id ? "selected" : "" }}>{{ $ad_album->title }}</option>
+                                                    @endforeach
+                                                </select>
+                                                @error('add_album')
+                                                    <p class="help-block" style="margin-bottom:0;">{{ $message }}</p>
+                                                @enderror
+                                            </div>
                                         </div>
                                     </div>
+                                    <div class="col-md-12">
+                                        <img alt="selected album preview" class="img-thumbnail" id="selected-album-preview">
+                                    </div>
                                 </div>
-                                <div class="col-md-12">
-                                    <img alt="selected album preview" class="img-thumbnail" id="selected-album-preview">
+                                <div class="row" style="margin-top: 21px;">
+                                    <div class="col-md-4">
+                                        <button type="reset" class="btn btn-block btn-warning" onblur="updateAlbumImage()">Clear</button>
+                                    </div>
+                                    <div class="col-md-8">
+                                        <button type="submit" class="btn btn-block btn-success">Add Album</button>
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="row" style="margin-top: 21px;">
-                                <div class="col-md-4">
-                                    <button type="reset" class="btn btn-block btn-warning" onblur="updateAlbumImage()">Clear</button>
-                                </div>
-                                <div class="col-md-8">
-                                    <button type="submit" class="btn btn-block btn-success">Add Album</button>
-                                </div>
-                            </div>
-                        </form>
+                            </form>
+                        @else
+                            <col-md-12 class="text-center">No Albums available to add.</col-md-12>
+                        @endif
                     </div>
                 </div>
             </div>
@@ -106,7 +136,7 @@
     <script src="{{ asset('assets/plugins/switchery/switchery.min.js') }}"></script>
     <script src="{{ asset('assets/js/ecaps.min.js') }}"></script>
     <script>
-        albums = JSON.parse({!! json_encode(App\Models\Album::all(["id"])->append("image_url")->toJson()) !!})
+        albums = JSON.parse({!! json_encode(App\Models\Album::all()->append(["image_url"])->toJson()) !!})
         console.log(albums)
 
         updateAlbumImage()
