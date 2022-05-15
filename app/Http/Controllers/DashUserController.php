@@ -7,6 +7,7 @@ use App\Models\User;
 use App\Models\UserType;
 use App\Http\Requests\StoreDashUserRequest;
 use App\Http\Requests\UpdateDashUserRequest;
+use App\Http\Requests\UpdateUserPassword;
 
 use Hash;
 
@@ -109,5 +110,25 @@ class DashUserController extends Controller
     public function destroy(User $user)
     {
         //
+    }
+
+    public function resetPassword(Request $request)
+    {
+        $data['active_menu'] = "users";
+        
+        // $data["user"] = auth()->user();
+
+        return view("dashboard.user.reset_password", $data);
+    }
+    
+    public function updatePassword(UpdateUserPassword $request)
+    {
+        $data = $request->validated();
+
+        $user = auth()->user();
+        $user->password = Hash::make($data['password']);
+        $user->save();
+
+        return redirect(route("dashboard.user.show", ["user" => $user]));
     }
 }

@@ -23,7 +23,7 @@
                 <li class="dropdown user-dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><img src="http://via.placeholder.com/36x36" alt="" class="img-circle"></a>
                     <ul class="dropdown-menu">
-                        <li><a href="#">Reset Password</a></li>
+                        <li><a href="{{ route('dashboard.user.reset_password') }}">Reset Password</a></li>
                         <li role="separator" class="divider"></li>
                         <li>
                             <a href="{{ route('logout') }}" onclick="event.preventDefault();

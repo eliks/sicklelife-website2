@@ -42,6 +42,8 @@ Route::middleware(['auth'])->prefix('dashboard')->group(function () {
     Route::post('/album/{album}/remove_image', 'App\Http\Controllers\DashAlbumController@removeImage')->name('dashboard.album.remove_image');
     Route::post('/basket/{basket}/add_album', 'App\Http\Controllers\DashBasketController@addAlbum')->name('dashboard.basket.add_album');
     Route::post('/basket/{basket}/remove_album', 'App\Http\Controllers\DashBasketController@removeAlbum')->name('dashboard.basket.remove_album');
+    Route::get('/user/reset_password', 'App\Http\Controllers\DashUserController@resetPassword')->name('dashboard.user.reset_password');
+    Route::post('/user/update_password', 'App\Http\Controllers\DashUserController@updatePassword')->name('dashboard.user.update_password');
     Route::resource('blog', App\Http\Controllers\DashBlogController::class, ["as" =>"dashboard"]);
     Route::resource('user', App\Http\Controllers\DashUserController::class, ["as" =>"dashboard"]);
     Route::resource('image', App\Http\Controllers\DashImageController::class, ["as" =>"dashboard"]);
